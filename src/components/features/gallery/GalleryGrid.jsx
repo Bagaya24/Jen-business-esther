@@ -1,23 +1,17 @@
 import { BeforeAfterCard } from './BeforeAfterCard';
 import styles from './Gallery.module.css';
 
-// Assets
-import imgAvantPolissage from '../../../assets/voitureAvantPolissage.png';
-import imgApresPolissage from '../../../assets/voitureApresPolissage.png';
-import imgSalle from '../../../assets/voitureSalle.png';
-import imgNettoye from '../../../assets/voitureNettoye.png';
-
 const REAL_GALLERY = [
     {
         id: 1,
-        before: imgSalle,
-        after: imgNettoye,
+        before: '/voitureSalle.png',
+        after: '/voitureNettoye.png',
         label: 'Nettoyage Extérieur & Intérieur'
     },
     {
         id: 2,
-        before: imgAvantPolissage,
-        after: imgApresPolissage,
+        before: '/voitureAvantPolissage.png',
+        after: '/voitureApresPolissage.png',
         label: 'Polissage & Rénovation Carrosserie'
     }
 ];

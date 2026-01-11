@@ -11,7 +11,6 @@ const SERVICES = [
     { id: 8, title: 'Nettoyage moteur vapeur', icon: '⚙️' }
 ];
 
-import pictogramme from '../../../assets/Pictogramme.jpg';
 
 export const ServicesList = () => {
     return (
@@ -32,7 +31,7 @@ export const ServicesList = () => {
                         </ul>
                     </div>
                     <div style={{ flex: '0 1 300px' }}>
-                        <img src={pictogramme} alt="Services Pictogramme" style={{ width: '100%', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
+                        <img src="/Pictogramme.jpg" alt="Services Pictogramme" style={{ width: '100%', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
                     </div>
                 </div>
 

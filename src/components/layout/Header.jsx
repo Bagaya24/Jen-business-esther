@@ -1,6 +1,4 @@
 import styles from './Layout.module.css';
-import logoBlanc from '../../assets/LogoBlanc.png';
-import logoBleu from '../../assets/LogoBleu.png';
 
 export const Header = () => {
     return (
@@ -14,10 +12,10 @@ export const Header = () => {
                 WAIT: User said "LogoBlanc pour mode claire".
                 So: Light Mode -> LogoBlanc. Dark Mode -> LogoBleu.
              */}
-                        <source srcSet={logoBleu} media="(prefers-color-scheme: dark)" />
-                        <source srcSet={logoBlanc} media="(prefers-color-scheme: light)" />
+                        <source srcSet="/LogoBleu.png" media="(prefers-color-scheme: dark)" />
+                        <source srcSet="/LogoBlanc.png" media="(prefers-color-scheme: light)" />
                         {/* Fallback */}
-                        <img src={logoBlanc} alt="JEN Business" className={styles.logoImg} />
+                        <img src="/LogoBlanc.png" alt="JEN Business" className={styles.logoImg} />
                     </picture>
                 </div>
                 <nav className={styles.nav}>

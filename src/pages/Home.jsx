@@ -4,13 +4,12 @@ import { ContactForm } from '../components/features/contact/ContactForm';
 import { ServicesList } from '../components/features/services/ServicesList';
 import styles from './Home.module.css';
 import contactStyles from '../components/features/contact/Contact.module.css';
-import mockupImg from '../assets/LogoMockup.png';
 
 export const Home = () => {
     return (
         <div>
             {/* Hero Section */}
-            <section className={styles.hero} style={{ backgroundImage: `url(${mockupImg})` }}>
+            <section className={styles.hero} style={{ backgroundImage: `url('/LogoMockup.png')` }}>
                 <div className={styles.shape}></div>
                 <div className={`container ${styles.heroContent}`}>
                     <h1>Lavage Auto Premium <br /><span style={{ color: 'var(--color-accent)' }}>JEN BUSINESS</span></h1>
