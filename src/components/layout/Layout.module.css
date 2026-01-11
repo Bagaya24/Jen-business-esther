@@ -1,0 +1,95 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  /* For Light Mode (Default), user wants LogoBlanc. 
+     White logo needs Dark background. 
+     So Light Mode Header = Dark Background? 
+     Let's try brand color. */
+  background-color: var(--color-primary); 
+  padding: var(--spacing-sm) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+     /* Dark Mode -> User wants LogoBleu.
+        Blue logo needs Dark background? Yes, blue on dark slate is ok. 
+        Or white background? Dark mode usually has dark headers.
+        If LogoBleu is dark blue, it needs Light background.
+     */
+     background-color: var(--color-bg-card); /* Dark Slate */
+  }
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoImg {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.nav a {
+  font-weight: 500;
+  color: white; /* On primary background */
+  transition: opacity var(--transition-fast);
+}
+
+.nav a:hover {
+  opacity: 0.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav a {
+    color: var(--color-text-main); /* On dark card background */
+  }
+}
+
+.ctaButton {
+  background-color: white !important;
+  color: var(--color-primary) !important;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ctaButton {
+    background-color: var(--color-primary) !important;
+    color: white !important;
+  }
+}
+
+.main {
+  flex: 1;
+}
+
+.footer {
+  background-color: var(--color-primary-dark);
+  color: white;
+  padding: var(--spacing-lg) 0;
+  margin-top: auto;
+}
+
+.subtext {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: var(--spacing-xs);
+}

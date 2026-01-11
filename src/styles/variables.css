@@ -1,0 +1,49 @@
+:root {
+  /* Brand Colors - JEN Business */
+  --color-primary: #0097B2; /* The requested Teal/Blue */
+  --color-primary-light: #33abc2;
+  --color-primary-dark: #00607d; /* Darker shade of brand color */
+  
+  --color-accent: #0097B2; /* Use brand color as accent */
+  
+  /* Text Colors */
+  --color-text-main: #1a202c; /* Default to dark text for light mode basis if needed, but we keep the theme structure */
+  --color-text-muted: #718096;
+  --color-text-invert: #ffffff;
+
+  /* Backgrounds */
+  --color-bg-body: #f7fafc;
+  --color-bg-card: #ffffff;
+  --color-bg-input: #edf2f7;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Overrides */
+    --color-text-main: #f7fafc;
+    --color-text-muted: #a0aec0;
+    --color-text-invert: #1a202c;
+
+    --color-bg-body: #0f172a; /* Slate 900 */
+    --color-bg-card: #1e293b; /* Slate 800 */
+    --color-bg-input: #334155;
+    
+    --color-primary-dark: #0f172a; /* Blend with background for header? Or keep brand? Let's keep brand dark */
+  }
+}
