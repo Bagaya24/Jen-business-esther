@@ -4,14 +4,14 @@ import styles from './Gallery.module.css';
 const REAL_GALLERY = [
     {
         id: 1,
-        before: '/voitureSalle.png',
-        after: '/voitureNettoye.png',
+        before: '/voitureSalle.webp',
+        after: '/voitureNettoye.webp',
         label: 'Nettoyage Extérieur & Intérieur'
     },
     {
         id: 2,
-        before: '/voitureAvantPolissage.png',
-        after: '/voitureApresPolissage.png',
+        before: '/voitureAvantPolissage.webp',
+        after: '/voitureApresPolissage.webp',
         label: 'Polissage & Rénovation Carrosserie'
     }
 ];
