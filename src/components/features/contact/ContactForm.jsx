@@ -1,10 +1,12 @@
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export const ContactForm = () => {
     const formRef = useRef();
     const [status, setStatus] = useState('idle'); // idle, submitting, success, error
+    const { t } = useLanguage();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,9 +31,9 @@ export const ContactForm = () => {
     if (status === 'success') {
         return (
             <div className={styles.successMessage}>
-                <h3>Message Envoyé !</h3>
-                <p>Nous avons bien reçu votre demande et vous répondrons sous 24h.</p>
-                <button onClick={() => setStatus('idle')} className={styles.resetBtn}>Envoyer un autre message</button>
+                <h3>{t('contact.form.successTitle')}</h3>
+                <p>{t('contact.form.successMsg')}</p>
+                <button onClick={() => setStatus('idle')} className={styles.resetBtn}>{t('contact.form.resetBtn')}</button>
             </div>
         );
     }
@@ -42,44 +44,44 @@ export const ContactForm = () => {
             <input type="hidden" name="to_name" value="JEN Business Team" />
 
             <div className={styles.group}>
-                <label htmlFor="c-name">Nom</label>
+                <label htmlFor="c-name">{t('contact.form.labelName')}</label>
                 <input
                     id="c-name"
                     name="user_name" /* Standard EmailJS name */
                     type="text"
                     required
-                    placeholder="Votre nom"
+                    placeholder={t('contact.form.placeholderName')}
                 />
             </div>
             <div className={styles.group}>
-                <label htmlFor="c-email">Email</label>
+                <label htmlFor="c-email">{t('contact.form.labelEmail')}</label>
                 <input
                     id="c-email"
                     name="user_email" /* Standard EmailJS email */
                     type="email"
                     required
-                    placeholder="votre@email.com"
+                    placeholder={t('contact.form.placeholderEmail')}
                 />
             </div>
             <div className={styles.group}>
-                <label htmlFor="c-msg">Message</label>
+                <label htmlFor="c-msg">{t('contact.form.labelMsg')}</label>
                 <textarea
                     id="c-msg"
                     name="message" /* Standard EmailJS message */
                     rows="4"
                     required
-                    placeholder="Comment pouvons-nous vous aider ?"
+                    placeholder={t('contact.form.placeholderMsg')}
                 ></textarea>
             </div>
 
             {status === 'error' && (
                 <p style={{ color: 'red', marginBottom: '1rem', textAlign: 'center' }}>
-                    Une erreur est survenue. Veuillez réessayer ou nous appeler directement.
+                    {t('contact.form.errorMsg')}
                 </p>
             )}
 
             <button type="submit" className={styles.submitBtn} disabled={status === 'submitting'}>
-                {status === 'submitting' ? 'Envoi en cours...' : 'Envoyer ma demande'}
+                {status === 'submitting' ? t('contact.form.btnLoading') : t('contact.form.btnSubmit')}
             </button>
         </form>
     );

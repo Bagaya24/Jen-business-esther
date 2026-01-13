@@ -1,33 +1,37 @@
 import styles from './Services.module.css';
-
-const SERVICES = [
-    { id: 1, title: 'Aspirateur habitacle & coffre', icon: '🧹' },
-    { id: 2, title: 'Nettoyage vapeur plastiques', icon: '💨' },
-    { id: 3, title: 'Nettoyage vapeur portes', icon: '🚪' },
-    { id: 4, title: 'Vapeur vitres & jantes', icon: '🪟' },
-    { id: 5, title: 'Lavage carrosserie à sec', icon: '✨' },
-    { id: 6, title: 'Shampouineuse tissus/tapis', icon: '🧼' },
-    { id: 7, title: 'Traitement anti-odeurs', icon: '🌿' },
-    { id: 8, title: 'Nettoyage moteur vapeur', icon: '⚙️' }
-];
-
+import { useLanguage } from '../../../context/LanguageContext';
 
 export const ServicesList = () => {
+    const { t } = useLanguage();
+
+    const services = [
+        { id: 1, title: t('services.items.1'), icon: '🧹' },
+        { id: 2, title: t('services.items.2'), icon: '💨' },
+        { id: 3, title: t('services.items.3'), icon: '🚪' },
+        { id: 4, title: t('services.items.4'), icon: '🪟' },
+        { id: 5, title: t('services.items.5'), icon: '✨' },
+        { id: 6, title: t('services.items.6'), icon: '🧼' },
+        { id: 7, title: t('services.items.7'), icon: '🌿' },
+        { id: 8, title: t('services.items.8'), icon: '⚙️' }
+    ];
+
+    const benefits = t('services.benefits'); // Expecting array from keys.js (need to verify keys.js structure support)
+
     return (
         <section id="services" className={`section ${styles.section}`}>
             <div className="container">
-                <h2 className="text-center mb-md">Nos Services <span style={{ color: 'var(--color-primary)' }}>ECO & CLEAN</span></h2>
+                <h2 className="text-center mb-md">{t('services.title')} <span style={{ color: 'var(--color-primary)' }}>{t('services.titleAccent')}</span></h2>
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '2rem', marginBottom: '3rem' }}>
                     <div style={{ flex: '1 1 300px', maxWidth: '500px' }}>
                         <p className="mb-md">
-                            Chez <strong>JEN BUSINESS ETS</strong>, nous révolutionnons le lavage auto avec notre approche <span style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>Écologique & Rapide</span>.
-                            Nous utilisons la vapeur pour nettoyer en profondeur, désinfecter et protéger votre véhicule, tout en préservant l'environnement.
+                            Chez <strong>{t('services.descriptionStrong')}</strong>, {t('services.description')} <span style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>{t('services.descriptionHighlight')}</span>.
+                            {t('services.descriptionRest')}
                         </p>
                         <ul style={{ listStyle: 'none', paddingLeft: 0, color: 'var(--color-text-muted)' }}>
-                            <li style={{ marginBottom: '0.5rem' }}>✅ Économie d'eau drastique</li>
-                            <li style={{ marginBottom: '0.5rem' }}>✅ Élimination de 99.9% des bactéries</li>
-                            <li style={{ marginBottom: '0.5rem' }}>✅ Service mobile ou sur site</li>
+                            {Array.isArray(benefits) && benefits.map((b, i) => (
+                                <li key={i} style={{ marginBottom: '0.5rem' }}>{b}</li>
+                            ))}
                         </ul>
                     </div>
                     <div style={{ flex: '0 1 300px' }}>
@@ -36,7 +40,7 @@ export const ServicesList = () => {
                 </div>
 
                 <div className={styles.grid}>
-                    {SERVICES.map(s => (
+                    {services.map(s => (
                         <div key={s.id} className={styles.card}>
                             <div className={styles.icon}>{s.icon}</div>
                             <h3 className={styles.title}>{s.title}</h3>
